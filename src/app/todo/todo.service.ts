@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const TODOS = [
+let TODOS = [
   { title: 'Install Angular CLI', isDone: true },
   { title: 'Style app', isDone: true },
   { title: 'Finish service functionality', isDone: false },
@@ -51,6 +51,13 @@ export class TodoService {
       TODOS.splice(index, 1);
       resolve(true);
     });
+  }
+
+  deleteCompleted() {
+    return new Promise(resolve => {
+      TODOS = TODOS.filter(todo => !todo.isDone);
+      resolve(TODOS);
+    })
   }
 
 }

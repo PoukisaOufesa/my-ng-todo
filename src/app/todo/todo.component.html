@@ -45,8 +45,8 @@
           <a [routerLink]="['/completed']" [class.selected]="path === 'completed'">Completed</a>
         </li>
       </ul>
-            <!-- Hidden if no completed items are left ↓ -->
-      <button class="clear-completed">Clear completed</button>
-    </footer>
+        <!-- Hidden if no completed items are left ↓ -->
+        <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
+      </footer>
   </section>
   
