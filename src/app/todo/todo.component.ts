@@ -14,6 +14,10 @@ export class TodoComponent implements OnInit {
 
   constructor(private todoService: TodoService) { } 
 
+  ngOnInit() {
+    this.getTodos();
+  }
+
   getTodos(){
     return this.todoService.get().then(todos => {
       this.todos = todos;
@@ -37,8 +41,12 @@ export class TodoComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-    this.getTodos();
+  destroyTodo(todo) {
+    this.todoService.delete(todo).then(() => {
+      return this.getTodos();
+    });
   }
+
+
 
 }

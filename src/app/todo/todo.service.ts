@@ -30,8 +30,15 @@ export class TodoService {
       const index = TODOS.findIndex(todo => todo === changed);
       TODOS[index].title = changed.title;
       resolve(changed);
-    }
-
-    )
+    });
   }
+
+  delete(selected){
+    return new Promise(resolve => {
+      const index = TODOS.findIndex(todo => todo === selected);
+      TODOS.splice(index, 1);
+      resolve(true);
+    });
+  }
+
 }
