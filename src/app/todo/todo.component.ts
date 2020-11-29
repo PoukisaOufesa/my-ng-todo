@@ -8,11 +8,10 @@ import { TodoService } from './todo.service';
   providers: [TodoService]
 })
 export class TodoComponent implements OnInit {
+  public todos;
+  public activeTasks;
 
-  private todos;
-  private activeTasks;
-
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) { } 
 
   getTodos(){
     return this.todoService.get().then(todos => {
@@ -21,8 +20,7 @@ export class TodoComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getTodos();
   }
-
 }
