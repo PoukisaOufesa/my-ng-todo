@@ -60,4 +60,9 @@ export class TodoService {
     })
   }
 
+  toggle(selected) {
+    selected.isDone = !selected.isDone;
+    return Promise.resolve();
+  }
+
 }

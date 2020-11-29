@@ -60,4 +60,10 @@ export class TodoComponent implements OnInit {
     })
   }
 
+  toggleTodo(todo){
+    this.todoService.toggle(todo).then(() => {
+      return this.getTodos();
+    });
+  }
+
 }
